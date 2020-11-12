@@ -1,0 +1,31 @@
+.table {
+	margin-top: 20px;
+	overflow: scroll;
+	height: 400px;
+	color: #1a1a1a;
+	&::-webkit-scrollbar {
+		width: 15px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: #cc1034;
+		border-radius: 25px;
+		&:hover {
+			background: rgba(148, 12, 37, 0.95);
+		}
+	}
+	& > tr {
+		display: flex;
+		justify-content: space-between;
+		&:nth-of-type(even) {
+			background-color: rgba(255, 255, 255, 0.75);
+		}
+		&:nth-of-type(odd) {
+			background-color: rgba(252, 188, 188, 0.75);
+		}
+		& > td {
+			padding: 0.5rem;
+			border: transparent;
+			font-weight: 700;
+		}
+	}
+}

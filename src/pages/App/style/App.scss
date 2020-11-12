@@ -1,0 +1,43 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.app {
+	display: flex;
+	justify-content: space-evenly;
+	padding: 20px;
+	.app__left {
+		flex: 0.9;
+		.app__header {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 20px;
+		}
+		.app__status {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+	.app__right {
+	}
+}
+
+// Debating between
+// 990px or 769px
+@media (max-width: 769px) {
+	.app {
+		flex-direction: column;
+		.app__left {
+			.app__header {
+			}
+			.app__status {
+			}
+		}
+		.app__right {
+		}
+	}
+}
