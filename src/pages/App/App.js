@@ -134,8 +134,8 @@ function App() {
 						active={casesType === 'cases'}
 						onClick={(e) => setCasesType('cases')}
 						title='Corona Virus Cases'
-						total={prettyPrintStat(countryInfo.todayCases)}
-						cases={prettyPrintStat(countryInfo.cases)}
+						total={prettyPrintStat(countryInfo.cases)}
+						cases={prettyPrintStat(countryInfo.todayCases)}
 						isRed
 					/>
 					<InfoBox
