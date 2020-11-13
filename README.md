@@ -2,7 +2,7 @@
 
 ### Click the link to view the website
 
-[Covid-19 Tracker Website](https://fun-functionalities.web.app/)
+[Covid-19 Tracker Website](https://covid-track-er.web.app/)
 
 ### About Us
 
