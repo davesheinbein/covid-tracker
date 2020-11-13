@@ -86,7 +86,7 @@ function App() {
 			});
 	};
 
-	console.log(countryInfo, '<<< countryInfo');
+	// console.log(countryInfo, '<<< countryInfo');
 
 	return (
 		<div className='app'>
@@ -136,7 +136,11 @@ function App() {
 					<h3>Live Cases by Country</h3>
 					<Table countries={tableData} />
 					<h3>Worldwide new cases</h3>
-					<LineGraph />
+					<LineGraph casesType='cases' />
+					<h3>Worldwide Deaths</h3>
+					<LineGraph casesType='deaths' />
+					<h3>Worldwide Recovered</h3>
+					<LineGraph casesType='recovered' />
 				</CardContent>
 			</Card>
 		</div>
