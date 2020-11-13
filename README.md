@@ -21,9 +21,9 @@ https://www.linkedin.com/in/david-sheinbein/
 
 ## Screenshot:
 
-![Tracker Sceenshot](screenshots/covidTrackerScreenshot.png)
+![Tracker Screenshot](screenshots/covidTrackerScreenshot.png)
 
-[Tracker Sceenshot](https://imgur.com/oemRjpG)
+[Tracker Screenshot](https://imgur.com/oemRjpG)
 
 ## Technologies Used:
 
@@ -55,6 +55,6 @@ https://www.linkedin.com/in/david-sheinbein/
 
 ##### - [X] Update CSS further for additional media queries
 
-### Click the link to view David Sheinbeins Portfolio website
+### Click the link to view David Sheinbein's Portfolio website
 
-[David Sheinbein Portfolio Webstite](http://www.davidsheinbeinportfolio.com/)
+[David Sheinbein Portfolio Website](http://www.davidsheinbeinportfolio.com/)

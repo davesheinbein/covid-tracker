@@ -9,6 +9,10 @@
   margin-right: 10px;
 }
 
+.infoBox .infoBox__title {
+  font-weight: normal;
+}
+
 .infoBox .infoBox__cases {
   color: #cc1034;
   font-weight: 600;
