@@ -55,6 +55,7 @@ export const prettyPrintStat = (stat) =>
 export const showDataOnMap = (data, casesType = 'cases') =>
 	data.map((country) => (
 		<Circle
+			key={country.countryInfo.is2}
 			center={[
 				country.countryInfo.lat,
 				country.countryInfo.long,

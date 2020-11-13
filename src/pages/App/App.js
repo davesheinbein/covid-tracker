@@ -42,7 +42,7 @@ function App() {
 			'themeChanger',
 			color
 		);
-		console.log(document, '< document');
+		// console.log(document, '< document');
 	};
 
 	useEffect(() => {
@@ -52,7 +52,7 @@ function App() {
 				setCountryInfo(data);
 			});
 		return () => {
-			console.log('<< hitting useEffect!!!!');
+			// console.log('<< hitting useEffect!!!!');
 		};
 	}, []); // might include countryInfo in brackets
 
@@ -102,7 +102,7 @@ function App() {
 		await fetch(url)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data, '<<< data <<<<<<');
+				// console.log(data, '<<< data');
 				// console.log(countryCode, '<<< countryCode');
 				setCountry(countryCode);
 				setCountryInfo(data);
@@ -134,7 +134,9 @@ function App() {
 								</MenuItem>
 								<hr />
 								{countries.map((country) => (
-									<MenuItem value={country.value}>
+									<MenuItem
+										key={country.value}
+										value={country.value}>
 										{country.name}
 									</MenuItem>
 								))}

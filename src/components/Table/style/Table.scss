@@ -13,7 +13,7 @@
 			background: rgba(148, 12, 37, 0.95);
 		}
 	}
-	& > tr {
+	& > div {
 		display: flex;
 		justify-content: space-between;
 		&:nth-of-type(even) {
@@ -22,7 +22,7 @@
 		&:nth-of-type(odd) {
 			background-color: rgba(252, 188, 188, 0.75);
 		}
-		& > td {
+		& > div {
 			padding: 0.5rem;
 			border: transparent;
 			font-weight: 700;

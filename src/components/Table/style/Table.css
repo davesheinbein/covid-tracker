@@ -18,7 +18,7 @@
   background: rgba(148, 12, 37, 0.95);
 }
 
-.table > tr {
+.table > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,15 +27,15 @@
           justify-content: space-between;
 }
 
-.table > tr:nth-of-type(even) {
+.table > div:nth-of-type(even) {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
-.table > tr:nth-of-type(odd) {
+.table > div:nth-of-type(odd) {
   background-color: rgba(252, 188, 188, 0.75);
 }
 
-.table > tr > td {
+.table > div > div {
   padding: 0.5rem;
   border: transparent;
   font-weight: 700;

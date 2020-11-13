@@ -28,7 +28,7 @@ export class SwitchBtn extends Component {
 			toggled: toggle,
 		});
 		this.props.changeTheme(toggle ? 'dark' : 'light');
-		console.log(toggle, '<<toggle');
+		// console.log(toggle, '<<toggle');
 	};
 
 	render(props) {
