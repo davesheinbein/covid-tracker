@@ -21,9 +21,13 @@ https://www.linkedin.com/in/david-sheinbein/
 
 ## Screenshot:
 
-![Tracker Screenshot](screenshots/covidTrackerScreenshot.png)
+![Tracker Dark Screenshot](screenshots/covidTrackerScreenshotDark.png)
 
-[Tracker Screenshot](https://imgur.com/oemRjpG)
+[Tracker Dark Screenshot](https://imgur.com/hNI2pju)
+
+![Tracker Light Screenshot](screenshots/covidTrackerScreenshotLight.png)
+
+[Tracker Light Screenshot](https://imgur.com/MhL8Sea)
 
 ## Technologies Used:
 
