@@ -38,4 +38,10 @@
 .infoBox__cases--green {
   color: lightgreen !important;
 }
+
+@media (max-width: 426px) {
+  .infoBox .infoBox__cases {
+    font-size: 1.25rem;
+  }
+}
 /*# sourceMappingURL=InfoBox.css.map */
