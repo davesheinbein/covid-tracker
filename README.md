@@ -37,13 +37,19 @@ https://www.linkedin.com/in/david-sheinbein/
 
 #### 5. React
 
-#### 6. Node.js
+#### 6. chart.js
 
-#### 7. Firebase
+#### 7. leaflet
 
-#### 8. Git
+#### 8. numeral
 
-#### 9. Github
+#### 9. Node.js
+
+#### 10. Firebase
+
+#### 11. Git
+
+#### 12. Github
 
 ## Potential Next Steps:
 
