@@ -17,8 +17,8 @@ function InfoBox({
 	return (
 		<Card
 			className={`infoBox ${
-				active && 'infoBox--selected'
-			} ${isRed && 'infoBox--red'}`}
+				active && 'infoBox__selected'
+			} ${isRed && 'infoBox__red'}`}
 			onClick={props.onClick}>
 			<CardContent>
 				<Typography
@@ -28,7 +28,7 @@ function InfoBox({
 				</Typography>
 				<h2
 					className={`infoBox__cases ${
-						!isRed && 'infoBox__cases--green'
+						!isRed && 'infoBox__cases__green'
 					}`}>
 					{cases}
 				</h2>

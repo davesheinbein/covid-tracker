@@ -10,7 +10,7 @@
 }
 
 .table::-webkit-scrollbar-thumb {
-  background: #cc1034;
+  background: var(--mainColor);
   border-radius: 25px;
 }
 

@@ -1,0 +1,53 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: var(--dropdownText);
+  background-color: var(--mainColor);
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.footer .footer__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1em;
+}
+
+.footer .footer__container .footer__left {
+  margin-right: auto;
+}
+
+.footer .footer__container .footer__right {
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer .footer__container .footer__right > a {
+  text-decoration: none;
+  color: var(--dropdownText);
+  cursor: pointer;
+}
+
+.footer .footer__container .footer__right > a:hover {
+  color: #000000;
+}
+/*# sourceMappingURL=Footer.css.map */

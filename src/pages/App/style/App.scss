@@ -4,40 +4,50 @@
 }
 
 .app {
-	display: flex;
-	justify-content: space-evenly;
-	padding: 20px;
-	.app__left {
-		flex: 0.9;
-		.app__header {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: space-between;
-			margin-bottom: 20px;
-		}
-		.app__dropdown {
-			background-color: #ffffff;
-		}
-		.app__status {
-			display: flex;
-			justify-content: space-between;
-			align-items: space-between;
-		}
-	}
-	.app__right {
+	.app__container {
 		display: flex;
-		flex-direction: column;
-		.MuiCardContent-root {
+		justify-content: space-evenly;
+		padding: 20px;
+		.app__left {
+			flex: 0.9;
+			.app__header {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: 20px;
+				color: var(--dropdownText);
+			}
+			.app__dropdown {
+				background-color: var(--bg);
+				.MuiInputBase-root {
+					outline-width: 0;
+					outline: none;
+					color: var(--dropdownText);
+				}
+			}
+			.app__status {
+				display: flex;
+				justify-content: space-between;
+				align-items: space-between;
+			}
+		}
+		.app__right {
 			display: flex;
 			flex-direction: column;
-			flex-grow: 1;
-			.app__graphTitle {
-				margin-top: 20px;
-				margin-bottom: 10px;
-			}
-			.app__graph {
+			background-color: var(--bg);
+			color: var(--dropdownText);
+			.MuiCardContent-root {
+				display: flex;
+				flex-direction: column;
 				flex-grow: 1;
+				.app__graphTitle {
+					margin-top: 20px;
+					margin-bottom: 10px;
+				}
+				.app__graph {
+					flex-grow: 1;
+				}
 			}
 		}
 	}

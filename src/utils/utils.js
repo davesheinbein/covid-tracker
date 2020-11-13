@@ -13,13 +13,13 @@ const casesTypeColors = {
 		hex: '#7dd71d',
 		rgb: 'rgb(125, 215, 29)',
 		half_op: 'rgba(125, 215, 29, 0.5)',
-		multiplier: 1200,
+		multiplier: 1000,
 	},
 	deaths: {
 		hex: '#fb4443',
 		rgb: 'rgb(251, 68, 67)',
 		half_op: 'rgba(251, 68, 67, 0.5)',
-		multiplier: 2000,
+		multiplier: 1200,
 	},
 };
 

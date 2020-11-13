@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-.app {
+.app .app__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,13 +13,13 @@
   padding: 20px;
 }
 
-.app .app__left {
+.app .app__container .app__left {
   -webkit-box-flex: 0.9;
       -ms-flex: 0.9;
           flex: 0.9;
 }
 
-.app .app__left .app__header {
+.app .app__container .app__left .app__header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,13 +34,20 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 20px;
+  color: var(--dropdownText);
 }
 
-.app .app__left .app__dropdown {
-  background-color: #ffffff;
+.app .app__container .app__left .app__dropdown {
+  background-color: var(--bg);
 }
 
-.app .app__left .app__status {
+.app .app__container .app__left .app__dropdown .MuiInputBase-root {
+  outline-width: 0;
+  outline: none;
+  color: var(--dropdownText);
+}
+
+.app .app__container .app__left .app__status {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -52,7 +59,7 @@
           align-items: space-between;
 }
 
-.app .app__right {
+.app .app__container .app__right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,9 +67,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: var(--bg);
+  color: var(--dropdownText);
 }
 
-.app .app__right .MuiCardContent-root {
+.app .app__container .app__right .MuiCardContent-root {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -75,12 +84,12 @@
           flex-grow: 1;
 }
 
-.app .app__right .MuiCardContent-root .app__graphTitle {
+.app .app__container .app__right .MuiCardContent-root .app__graphTitle {
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
-.app .app__right .MuiCardContent-root .app__graph {
+.app .app__container .app__right .MuiCardContent-root .app__graph {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;

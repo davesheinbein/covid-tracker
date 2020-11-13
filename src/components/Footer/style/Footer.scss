@@ -1,0 +1,35 @@
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	flex: 1;
+	color: var(--dropdownText);
+	background-color: var(--mainColor);
+	padding: 0.5rem 0;
+	width: 100%;
+	.footer__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 1em;
+		.footer__left {
+			margin-right: auto;
+		}
+		.footer__right {
+			margin-left: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			& > a {
+				text-decoration: none;
+				color: var(--dropdownText);
+				cursor: pointer;
+				&:hover {
+					color: #000000;
+				}
+				& > p {
+				}
+			}
+		}
+	}
+}
