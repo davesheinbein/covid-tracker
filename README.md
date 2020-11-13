@@ -39,7 +39,7 @@ https://www.linkedin.com/in/david-sheinbein/
 
 #### 6. chart.js
 
-#### 7. leaflet
+#### 7. leaflet & react-leaflet
 
 #### 8. numeral
 

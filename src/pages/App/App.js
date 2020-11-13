@@ -34,7 +34,7 @@ function App() {
 	const [mapZoom, setMapZoom] = useState(3);
 	const [mapCountries, setMapCountries] = useState([]);
 	const [casesType, setCasesType] = useState('cases');
-	const [color, setColor] = useState('default');
+	const [color, setColor] = useState('light');
 
 	const changeTheme = (color) => {
 		setColor(color);
@@ -42,20 +42,8 @@ function App() {
 			'themeChanger',
 			color
 		);
+		console.log(document, '< document');
 	};
-
-	// useEffect(() => {
-	// 	const changeTheme = (color) => {
-	// 		setColor(color);
-	// 		document.documentElement.setAttribute(
-	// 			'themeChanger',
-	// 			color
-	// 		);
-	// 	};
-	// 	return () => {
-	// 		console.log('<<<< hitting useEffect theme changer')
-	// 	};
-	// }, [color]);
 
 	useEffect(() => {
 		fetch('https://disease.sh/v3/covid-19/all')
@@ -118,10 +106,11 @@ function App() {
 				// console.log(countryCode, '<<< countryCode');
 				setCountry(countryCode);
 				setCountryInfo(data);
-				setMapCenter([
-					data.countryInfo.lat,
-					data.countryInfo.long,
-				]);
+				setMapCenter(
+					countryCode === 'worldwide'
+						? [34.80746, -40.4796]
+						: [data.countryInfo.lat, data.countryInfo.long]
+				);
 				console.log(mapCenter, '<< mapCenter');
 				setMapZoom(5);
 			});
