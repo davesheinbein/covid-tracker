@@ -36,6 +36,10 @@
   margin-bottom: 20px;
 }
 
+.app .app__left .app__dropdown {
+  background-color: #ffffff;
+}
+
 .app .app__left .app__status {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,7 +52,41 @@
           align-items: center;
 }
 
-@media (max-width: 769px) {
+.app .app__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.app .app__right .MuiCardContent-root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.app .app__right .MuiCardContent-root .app__graphTitle {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.app .app__right .MuiCardContent-root .app__graph {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+@media (max-width: 990px) {
   .app {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

@@ -16,6 +16,9 @@
 			justify-content: space-between;
 			margin-bottom: 20px;
 		}
+		.app__dropdown {
+			background-color: #ffffff;
+		}
 		.app__status {
 			display: flex;
 			justify-content: space-between;
@@ -23,21 +26,27 @@
 		}
 	}
 	.app__right {
+		display: flex;
+		flex-direction: column;
+		.MuiCardContent-root {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			.app__graphTitle {
+				margin-top: 20px;
+				margin-bottom: 10px;
+			}
+			.app__graph {
+				flex-grow: 1;
+			}
+		}
 	}
 }
 
 // Debating between
 // 990px or 769px
-@media (max-width: 769px) {
+@media (max-width: 990px) {
 	.app {
 		flex-direction: column;
-		.app__left {
-			.app__header {
-			}
-			.app__status {
-			}
-		}
-		.app__right {
-		}
 	}
 }

@@ -7,7 +7,10 @@ import {
 	CardContent,
 } from '@material-ui/core';
 // Utils
-import { sortData } from '../../utils/utils';
+import {
+	prettyPrintStat,
+	sortData,
+} from '../../utils/utils';
 // Components
 import InfoBox from '../../components/InfoBox/InfoBox';
 import Map from '../../components/Map/Map';
@@ -15,12 +18,21 @@ import Table from '../../components/Table/Table';
 import LineGraph from '../../components/LineGraph/LineGraph';
 // Styles
 import './style/App.css';
+// leaflet css
+import 'leaflet/dist/leaflet.css';
 
 function App() {
 	const [countries, setCountries] = useState([]);
 	const [country, setCountry] = useState('worldwide');
 	const [countryInfo, setCountryInfo] = useState({});
 	const [tableData, setTableData] = useState([]);
+	const [mapCenter, setMapCenter] = useState({
+		lat: 34.80746,
+		lng: -40.4796,
+	});
+	const [mapZoom, setMapZoom] = useState(3);
+	const [mapCountries, setMapCountries] = useState([]);
+	const [casesType, setCasesType] = useState('cases');
 
 	useEffect(() => {
 		fetch('https://disease.sh/v3/covid-19/all')
@@ -38,7 +50,7 @@ function App() {
 	// For more endpoints check out
 	// https://disease.sh/docs/
 	useEffect(() => {
-		const getCoutriesData = async () => {
+		const getCountriesData = async () => {
 			await fetch(
 				'https://disease.sh/v3/covid-19/countries'
 			) // api endpoint goes here
@@ -52,11 +64,11 @@ function App() {
 
 					const sortedData = sortData(data); // pull from utils sorting function
 					setTableData(sortedData);
-
 					setCountries(countries);
+					setMapCountries(data);
 				});
 		};
-		getCoutriesData();
+		getCountriesData();
 
 		return () => {
 			// console.log('<<< Hitting set countries useEffect!!!');
@@ -79,10 +91,16 @@ function App() {
 		await fetch(url)
 			.then((response) => response.json())
 			.then((data) => {
-				// console.log(data, '<<< data');
+				console.log(data, '<<< data <<<<<<');
 				// console.log(countryCode, '<<< countryCode');
-				setCountryInfo(data);
 				setCountry(countryCode);
+				setCountryInfo(data);
+				setMapCenter([
+					data.countryInfo.lat,
+					data.countryInfo.long,
+				]);
+				console.log(mapCenter, '<< mapCenter');
+				setMapZoom(5);
 			});
 	};
 
@@ -113,34 +131,45 @@ function App() {
 
 				<div className='app__status'>
 					<InfoBox
-						title='Coronavirus Cases'
-						total={countryInfo.todayCases}
-						cases={countryInfo.cases}
+						active={casesType === 'cases'}
+						onClick={(e) => setCasesType('cases')}
+						title='Corona Virus Cases'
+						total={prettyPrintStat(countryInfo.todayCases)}
+						cases={prettyPrintStat(countryInfo.cases)}
+						isRed
 					/>
 					<InfoBox
+						active={casesType === 'recovered'}
+						onClick={(e) => setCasesType('recovered')}
 						title='Recovered'
-						cases={countryInfo.todayRecovered}
-						total={countryInfo.recovered}
+						total={prettyPrintStat(countryInfo.recovered)}
+						cases={prettyPrintStat(
+							countryInfo.todayRecovered
+						)}
 					/>
 					<InfoBox
+						active={casesType === 'deaths'}
+						onClick={(e) => setCasesType('deaths')}
 						title='Deaths'
-						cases={countryInfo.todayDeaths}
-						total={countryInfo.deaths}
+						total={prettyPrintStat(countryInfo.deaths)}
+						cases={prettyPrintStat(countryInfo.todayDeaths)}
+						isRed
 					/>
 				</div>
 
-				<Map />
+				<Map
+					casesType={casesType}
+					countries={mapCountries}
+					center={mapCenter}
+					zoom={mapZoom}
+				/>
 			</div>
 			<Card className='app__right'>
 				<CardContent>
 					<h3>Live Cases by Country</h3>
 					<Table countries={tableData} />
-					<h3>Worldwide new cases</h3>
-					<LineGraph casesType='cases' />
-					<h3>Worldwide Deaths</h3>
-					<LineGraph casesType='deaths' />
-					<h3>Worldwide Recovered</h3>
-					<LineGraph casesType='recovered' />
+					<h3 className='app__graphTitle'>Worldwide new {casesType}</h3>
+					<LineGraph className='app__graph' casesType={casesType} />
 				</CardContent>
 			</Card>
 		</div>
