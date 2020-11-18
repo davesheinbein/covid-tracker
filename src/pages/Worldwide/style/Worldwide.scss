@@ -1,0 +1,62 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.worldwide {
+	.worldwide__container {
+		display: flex;
+		justify-content: space-evenly;
+		padding: 20px;
+		.worldwide__left {
+			flex: 0.9;
+			.worldwide__header {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: 20px;
+				color: var(--dropdownText);
+			}
+			.worldwide__dropdown {
+				background-color: var(--bg);
+				.MuiInputBase-root {
+					outline-width: 0;
+					outline: none;
+					color: var(--dropdownText);
+				}
+			}
+			.worldwide__status {
+				display: flex;
+				justify-content: space-between;
+				align-items: space-between;
+			}
+		}
+		.worldwide__right {
+			display: flex;
+			flex-direction: column;
+			background-color: var(--bg);
+			color: var(--dropdownText);
+			.MuiCardContent-root {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+				.worldwide__graphTitle {
+					margin-top: 20px;
+					margin-bottom: 10px;
+				}
+				.worldwide__graph {
+					flex-grow: 1;
+				}
+			}
+		}
+	}
+}
+
+// Debating between
+// 990px or 769px
+@media (max-width: 990px) {
+	.worldwide__container {
+		flex-direction: column;
+	}
+}

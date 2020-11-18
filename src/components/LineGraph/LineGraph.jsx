@@ -70,6 +70,8 @@ function LineGraph({ casesType = 'cases', ...props }) {
 
 	// API endpoint
 	// https://disease.sh/v3/covid-19/historical/all?lastdays=120
+	// Usa historical Data
+	// https://disease.sh/v3/covid-19/historical/usacounties/{state}?lastdays=120
 	useEffect(() => {
 		const fetchData = async () => {
 			await fetch(
@@ -88,6 +90,29 @@ function LineGraph({ casesType = 'cases', ...props }) {
 			// console.log('<< hitting useEffect!!!!');
 		};
 	}, [casesType]);
+
+	// need help VV here
+
+	// API endpoint
+	// https://disease.sh/v3/covid-19/historical/usacounties/{state}?lastdays=120
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		await fetch(
+	// 			`https://disease.sh/v3/covid-19/historical/usacounties/${state}?lastdays=120`
+	// 		)
+	// 			.then((response) => response.json())
+	// 			.then((data) => {
+	// 				// console.log(data, '<< data');
+	// 				let chartData = buildChartData(data, casesType); // can add a casetype here with , 'deaths'
+	// 				// console.log(chartData, '<< chartData');
+	// 				setData(chartData);
+	// 			});
+	// 	};
+	// 	fetchData();
+	// 	return () => {
+	// 		// console.log('<< hitting useEffect!!!!');
+	// 	};
+	// }, [casesType]);
 
 	return (
 		<div className={props.className}>

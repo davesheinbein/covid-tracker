@@ -20,6 +20,7 @@ code {
   --bg: #ffffff;
   --dropdownText: #000000;
   --infoBoxText: ##6c757d;
+  --hoverBtn: #ffffff;
 }
 
 :root[themeChanger='dark'] {
@@ -28,5 +29,6 @@ code {
   --bg: #333333;
   --dropdownText: #ffffff;
   --infoBoxText: #ffffff;
+  --hoverBtn: #000000;
 }
 /*# sourceMappingURL=index.css.map */

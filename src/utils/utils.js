@@ -1,6 +1,7 @@
 import React from 'react';
 import numeral from 'numeral';
 import { Circle, Popup } from 'react-leaflet';
+import usa from '../images/usaFlag.jpg';
 
 const casesTypeColors = {
 	cases: {
@@ -45,6 +46,7 @@ export const sortData = (data) => {
 	return sortedData.sort((a, b) =>
 		a.cases > b.cases ? -1 : 1
 	);
+	console.log(sortedData, 'sorted Data');
 };
 
 // prints the string stats prettier
@@ -55,7 +57,7 @@ export const prettyPrintStat = (stat) =>
 export const showDataOnMap = (data, casesType = 'cases') =>
 	data.map((country) => (
 		<Circle
-			key={country.countryInfo.is2}
+			key={country.countryInfo.iso3}
 			center={[
 				country.countryInfo.lat,
 				country.countryInfo.long,
@@ -72,7 +74,7 @@ export const showDataOnMap = (data, casesType = 'cases') =>
 					<div
 						className='info__flag'
 						style={{
-							backgroundImage: `url(${country.countryInfo.flag})`,
+							backgroundImage: `url(${usa})`,
 						}}></div>
 					<div className='info__name'>
 						{country.country}

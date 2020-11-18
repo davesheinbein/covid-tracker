@@ -1,3 +1,12 @@
+@mixin noSelection() {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
 .footer {
 	position: absolute;
 	bottom: 0;
@@ -7,6 +16,7 @@
 	background-color: var(--mainColor);
 	padding: 0.5rem 0;
 	width: 100%;
+	@include noSelection;
 	.footer__container {
 		display: flex;
 		justify-content: space-between;
@@ -25,11 +35,17 @@
 				color: var(--dropdownText);
 				cursor: pointer;
 				&:hover {
-					color: #000000;
+					color: var(--hoverBtn);
 				}
 				& > p {
 				}
 			}
 		}
+	}
+}
+
+@media (max-width: 990px) {
+	.footer {
+		position: relative;
 	}
 }

@@ -4,59 +4,26 @@
 }
 
 .app {
-	.app__container {
+	width: 100vw;
+	.app__links {
 		display: flex;
-		justify-content: space-evenly;
-		padding: 20px;
-		.app__left {
-			flex: 0.9;
-			.app__header {
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				justify-content: space-between;
-				margin-bottom: 20px;
-				color: var(--dropdownText);
-			}
-			.app__dropdown {
-				background-color: var(--bg);
-				.MuiInputBase-root {
-					outline-width: 0;
-					outline: none;
-					color: var(--dropdownText);
-				}
-			}
-			.app__status {
-				display: flex;
-				justify-content: space-between;
-				align-items: space-between;
-			}
-		}
-		.app__right {
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 3em;
+		cursor: pointer;
+		.app__link {
 			display: flex;
-			flex-direction: column;
-			background-color: var(--bg);
-			color: var(--dropdownText);
-			.MuiCardContent-root {
-				display: flex;
-				flex-direction: column;
-				flex-grow: 1;
-				.app__graphTitle {
-					margin-top: 20px;
-					margin-bottom: 10px;
-				}
-				.app__graph {
-					flex-grow: 1;
-				}
+			justify-content: center;
+			align-items: center;
+			font-weight: 900;
+			font-size: 24px;
+			color: var(--mainColor);
+			text-decoration: none;
+			&:hover {
+				color: var(--dropdownText);
 			}
 		}
 	}
 }
 
-// Debating between
-// 990px or 769px
-@media (max-width: 990px) {
-	.app {
-		flex-direction: column;
-	}
-}
+

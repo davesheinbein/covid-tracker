@@ -9,6 +9,17 @@
   background-color: var(--mainColor);
   padding: 0.5rem 0;
   width: 100%;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 .footer .footer__container {
@@ -48,6 +59,12 @@
 }
 
 .footer .footer__container .footer__right > a:hover {
-  color: #000000;
+  color: var(--hoverBtn);
+}
+
+@media (max-width: 990px) {
+  .footer {
+    position: relative;
+  }
 }
 /*# sourceMappingURL=Footer.css.map */
