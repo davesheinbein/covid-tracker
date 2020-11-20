@@ -35,7 +35,7 @@ export class SwitchBtn extends Component {
 		return (
 			<div className='switchContainer'>
 				<PurpleSwitch
-					// color='primary'
+					data-testid='switch'
 					defaultChecked
 					className='switch'
 					onClick={this.toggle}

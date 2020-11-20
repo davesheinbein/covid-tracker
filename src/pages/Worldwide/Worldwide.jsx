@@ -90,19 +90,40 @@ function Worldwide() {
 		await fetch(url)
 			.then((response) => response.json())
 			.then((data) => {
-				// console.log(data, '<<< data');
-				// console.log(countryCode, '<<< countryCode');
+				// console.log(data, '<<< data HERE <<<<');
 				setCountry(countryCode);
+				// console.log(countryCode, '<<< countryCode');
+				// console.log(
+				// 	countryCode === 'worldwide',
+				// 	'<<< countryCode === worldwide'
+				// );
 				setCountryInfo(data);
 				setMapCenter(
 					countryCode === 'worldwide'
 						? [34.80746, -40.4796]
 						: [data.countryInfo.lat, data.countryInfo.long]
 				);
-				console.log(mapCenter, '<< mapCenter');
+				// console.log(
+				// 	data.countryInfo.lat,
+				// 	'<< data.countryInfo.lat',
+				// 	data.countryInfo.long,
+				// 	'<< data.countryInfo.long'
+				// );
+				// console.log(mapCenter, '<< mapCenter');
 				setMapZoom(5);
 			});
 	};
+
+	// useEffect(() => {
+	// 	setMapCenter(mapCenter);
+	// 	return () => {
+	// 		console.log(
+	// 			'hitting use effect',
+	// 			mapCenter,
+	// 			'<< mapCenter'
+	// 		);
+	// 	};
+	// }, [mapCenter]);
 
 	// console.log(countryInfo, '<<< countryInfo');
 

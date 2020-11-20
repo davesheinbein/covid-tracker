@@ -16,8 +16,8 @@ import InfoBox from '../../components/InfoBox/InfoBox';
 import Map from '../../components/Map/Map';
 import Table from '../../components/Table/Table';
 import LineGraph from '../../components/LineGraph/LineGraph';
-// img
-import usa from '../../images/usaFlag.jpg';
+// constants
+import { sortedStates } from '../../Constants/Constants';
 // Styles
 import './style/Usa.css';
 
@@ -55,33 +55,26 @@ function Usa() {
 				.then((response) => response.json()) // fetching json data
 				.then((data) => {
 					// setting response.json to data
-					const states = data.map((state) => ({
-						name: state.state, // Name of the state...
-						key: state.state,
-					}));
-					// console.log(data, '<<< data');
+					const states = data
+						.sort((a, b) => (a.state < b.state ? -1 : 1))
+						.map((state, idx) => ({
+							// cases: state.cases,
+							// deaths: state.deaths,
+							// recovered: state.recovered,
+							...state,
+							name: state.state, // Name of the state...
+							value: sortedStates[idx].iso2,
+							key: state.state,
+							countryInfo: sortedStates[idx],
+						}));
+					console.log(states, '<<< states array');
+					// console.log(data, '<<< data all states data');
 					const sortedData = sortData(data); // pull from utils sorting function
-					console.log(sortedData, 'sorted Data');
+					// console.log(sortedData, 'sorted Data');
 					setTableStateData(sortedData);
 					setStates(states);
-					
-					// setMapStates(data);
-					setMapStates([
-						{
-							country: 'USA',
-							countryInfo: {
-								iso3: 'USA',
-								lat: 100,
-								long: 50,
-								flag: usa,
-							},
-							cases: 10824836,
-							todayCases: 115091,
-							deaths: 248163,
-							todayDeaths: 765,
-							recovered: 6684383,
-						},
-					]); // custom map state
+
+					setMapStates(states);
 				});
 		};
 		getStatesData();
@@ -93,29 +86,38 @@ function Usa() {
 	}, []); // might add states in brackets
 
 	const onStateChange = async (event) => {
-		const countryCode = event.target.value;
+		const stateCode = event.target.value;
 
 		// USA stats
-		// https://disease.sh/v3/covid-19/continents/United%20States?strict=true
+		// https://disease.sh/v3/covid-19/countries/United%20States?strict=true
 		// State specific stats
-		// https://disease.sh/v3/covid-19/states/{state}
+		// https://disease.sh/v3/covid-19/states/{stateCode}
 		// ternary operator
 		const url =
-			countryCode === 'usa'
-				? 'https://disease.sh/v3/covid-19/continents/United%20States?strict=true'
-				: `https://disease.sh/v3/covid-19/states/${countryCode}`;
+			stateCode === 'usa'
+				? 'https://disease.sh/v3/covid-19/countries/United%20States?strict=true'
+				: `https://disease.sh/v3/covid-19/states/${stateCode}`;
 		await fetch(url)
 			.then((response) => response.json())
 			.then((data) => {
-				// console.log(data, '<<< data');
-				// console.log(countryCode, '<<< countryCode');
-				setState(countryCode);
+				console.log(data, '<<< data onStateChange');
+				console.log(stateCode, '<<< stateCode');
+				setState(stateCode);
+				if (stateCode !== 'usa') {
+					//pull in constants here
+					let constants = sortedStates;
+
+					data.countryInfo = constants.filter(
+						(state) => state.state === stateCode
+					)[0];
+				}
 				setStateInfo(data);
+				console.log(data, 'data');
 				setMapStateCenter(
-					countryCode === 'usa' ? [350, 11] : [11, 360]
+					stateCode === 'usa' ? [350, 11] : [11, 360]
 				);
 				console.log(mapStateCenter, '<< mapStateCenter');
-				setMapStateZoom(5);
+				setMapStateZoom(8);
 			});
 	};
 

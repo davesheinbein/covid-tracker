@@ -7,7 +7,7 @@ import { showDataOnMap } from '../../utils/utils';
 import './style/Map.css';
 
 function Map({ center, zoom, countries, casesType }) {
-	console.log(center, '<<<<< center ');
+	// console.log(center, '<<<<< center ');
 	return (
 		<div className='map'>
 			<LeafletMap zoom={zoom} center={center}>

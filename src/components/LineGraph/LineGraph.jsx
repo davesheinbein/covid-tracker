@@ -102,15 +102,15 @@ function LineGraph({ casesType = 'cases', ...props }) {
 	// 		)
 	// 			.then((response) => response.json())
 	// 			.then((data) => {
-	// 				// console.log(data, '<< data');
+	// 				console.log(data, '<< data');
 	// 				let chartData = buildChartData(data, casesType); // can add a casetype here with , 'deaths'
-	// 				// console.log(chartData, '<< chartData');
+	// 				console.log(chartData, '<< chartData');
 	// 				setData(chartData);
 	// 			});
 	// 	};
 	// 	fetchData();
 	// 	return () => {
-	// 		// console.log('<< hitting useEffect!!!!');
+	// 		console.log('<< hitting useEffect!!!!');
 	// 	};
 	// }, [casesType]);
 
