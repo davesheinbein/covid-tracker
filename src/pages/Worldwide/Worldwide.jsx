@@ -60,7 +60,7 @@ function Worldwide() {
 						value: country.countryInfo.iso2, // UK, US, FR, etc...
 						key: country.countryInfo._id,
 					}));
-					console.log(data, '<<< data');
+					// console.log(data, '<<< data');
 					const sortedData = sortData(data); // pull from utils sorting function
 					setTableData(sortedData);
 					setCountries(countries);

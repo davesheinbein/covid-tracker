@@ -33,6 +33,7 @@ function Usa() {
 	const [mapStateZoom, setMapStateZoom] = useState(3);
 	const [mapStates, setMapStates] = useState([]);
 	const [casesType, setCasesType] = useState('cases');
+	const [statesCode, setStatesCode] = useState('');
 
 	useEffect(() => {
 		fetch('https://disease.sh/v3/covid-19/all')
@@ -67,13 +68,12 @@ function Usa() {
 							key: state.state,
 							countryInfo: sortedStates[idx],
 						}));
-					console.log(states, '<<< states array');
+					// console.log(states, '<<< states array');
 					// console.log(data, '<<< data all states data');
 					const sortedData = sortData(data); // pull from utils sorting function
 					// console.log(sortedData, 'sorted Data');
 					setTableStateData(sortedData);
 					setStates(states);
-
 					setMapStates(states);
 				});
 		};
@@ -100,8 +100,8 @@ function Usa() {
 		await fetch(url)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data, '<<< data onStateChange');
-				console.log(stateCode, '<<< stateCode');
+				// console.log(data, '<<< data onStateChange');
+				// console.log(stateCode, '<<< stateCode');
 				setState(stateCode);
 				if (stateCode !== 'usa') {
 					//pull in constants here
@@ -112,15 +112,17 @@ function Usa() {
 					)[0];
 				}
 				setStateInfo(data);
-				console.log(data, 'data');
+				// console.log(data, '<< data');
 				setMapStateCenter(
 					stateCode === 'usa' ? [350, 11] : [11, 360]
 				);
-				console.log(mapStateCenter, '<< mapStateCenter');
+				// console.log(mapStateCenter, '<< mapStateCenter');
 				setMapStateZoom(8);
+				setStatesCode(stateCode.toLowerCase());
 			});
 	};
 
+	// console.log(statesCode, '<< state Code');
 	// console.log(stateInfo, '<<< stateInfo');
 
 	return (
@@ -193,6 +195,8 @@ function Usa() {
 							{/* Selected states new {casesType} */}
 						</h3>
 						<LineGraph
+							usa={true}
+							statesCode={statesCode}
 							className='usa__graph'
 							casesType={casesType}
 						/>

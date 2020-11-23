@@ -48,7 +48,12 @@ const options = {
 	},
 };
 
-function LineGraph({ casesType = 'cases', ...props }) {
+function LineGraph({
+	usa,
+	statesCode,
+	casesType = 'cases',
+	...props
+}) {
 	const [data, setData] = useState({});
 
 	const buildChartData = (data, caseType = 'cases') => {
@@ -73,14 +78,22 @@ function LineGraph({ casesType = 'cases', ...props }) {
 	// Usa historical Data
 	// https://disease.sh/v3/covid-19/historical/usacounties/{state}?lastdays=120
 	useEffect(() => {
+		const url =
+			usa === true
+				? // `https://disease.sh/v3/covid-19/historical/usacounties/${statesCode}?lastdays=120`
+				  // 'https://disease.sh/v3/covid-19/historical/united%20states?lastdays=120'
+				  'https://disease.sh/v3/covid-19/historical/all?lastdays=120'
+				: 'https://disease.sh/v3/covid-19/historical/all?lastdays=120';
 		const fetchData = async () => {
-			await fetch(
-				'https://disease.sh/v3/covid-19/historical/all?lastdays=120'
-			)
+			await fetch(url)
 				.then((response) => response.json())
 				.then((data) => {
 					// console.log(data, '<< data');
-					let chartData = buildChartData(data, casesType); // can add a casetype here with , 'deaths'
+					// console.log(data.timeline, '<< data.timeline');
+					let chartData = buildChartData(
+						data || data.timeline,
+						casesType
+					); // can add a casetype here with , 'deaths'
 					// console.log(chartData, '<< chartData');
 					setData(chartData);
 				});
@@ -89,30 +102,7 @@ function LineGraph({ casesType = 'cases', ...props }) {
 		return () => {
 			// console.log('<< hitting useEffect!!!!');
 		};
-	}, [casesType]);
-
-	// need help VV here
-
-	// API endpoint
-	// https://disease.sh/v3/covid-19/historical/usacounties/{state}?lastdays=120
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		await fetch(
-	// 			`https://disease.sh/v3/covid-19/historical/usacounties/${state}?lastdays=120`
-	// 		)
-	// 			.then((response) => response.json())
-	// 			.then((data) => {
-	// 				console.log(data, '<< data');
-	// 				let chartData = buildChartData(data, casesType); // can add a casetype here with , 'deaths'
-	// 				console.log(chartData, '<< chartData');
-	// 				setData(chartData);
-	// 			});
-	// 	};
-	// 	fetchData();
-	// 	return () => {
-	// 		console.log('<< hitting useEffect!!!!');
-	// 	};
-	// }, [casesType]);
+	}, [statesCode]); // casesType
 
 	return (
 		<div className={props.className}>

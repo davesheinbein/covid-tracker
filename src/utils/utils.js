@@ -59,74 +59,68 @@ export const prettyPrintStat = (stat) =>
 export const showDataOnMap = (data, casesType = 'cases') =>
 	data
 		.sort((a, b) => (a.cases > b.cases ? -1 : 1))
-		.map(
-			(country, idx) => (
-				console.log(
-					country,
-					'<< country or State',
-					idx,
-					'<< idx'
-				),
-				console.log(
-					country.countryInfo.lat,
-					'country.countryInfo.lat'
-				),
-				console.log(casesType, 'casesType'),
-				(
-					// console.log(
-					// 	country[casesType],
-					// 	'<< [casesType]',
-					// 	casesTypeColors[casesType],
-					// 	'<< casesTypeColors[casesType]'
-					// ),
-					<div style={{ zIndex: 1000 - idx }}>
-						<Circle
-							key={country.countryInfo.iso3}
-							center={[
-								country.countryInfo.lat,
-								country.countryInfo.long,
-							]}
-							fillColor={casesTypeColors[casesType].hex}
-							color={casesTypeColors[casesType].hex}
-							fillOpacity={0.4}
-							radius={
-								Math.sqrt(country[casesType]) *
-								casesTypeColors[casesType].multiplier
-							}>
-							<Popup>
-								<div className='info__container'>
-									<div
-										className='info__flag'
-										style={
-											country.countryInfo.flag
-												? {
-														backgroundImage: `url(${country.countryInfo.flag})`,
-												  }
-												: { backgroundImage: `url(${usa})` }
-										}></div>
-									<div className='info__name'>
-										{country.country
-											? country.country
-											: country.state}
-									</div>
-									<div className='info__confirmed'>
-										Cases:{' '}
-										{numeral(country.cases).format('0,0')}
-									</div>
-									<div className='info__recovered'>
-										Recovered:{' '}
-										{numeral(country.recovered).format(
-											'0,0'
-										)}
-									</div>
-									<div className='info__deaths'>
-										Deaths:{' '}
-										{numeral(country.deaths).format('0,0')}
-									</div>
-								</div>
-							</Popup>
-						</Circle>
-					</div>
-				)
-			)
-		);
+		.map((country, idx) => (
+			// console.log(
+			// 	country,
+			// 	'<< country or State',
+			// 	idx,
+			// 	'<< idx'
+			// ),
+			// console.log(
+			// 	country.countryInfo.lat,
+			// 	'country.countryInfo.lat'
+			// ),
+			// console.log(casesType, 'casesType'),
+			// console.log(
+			// 	country[casesType],
+			// 	'<< [casesType]',
+			// 	casesTypeColors[casesType],
+			// 	'<< casesTypeColors[casesType]'
+			// ),
+			<div style={{ zIndex: 1000 - idx }}>
+				<Circle
+					key={country.countryInfo.iso3}
+					center={[
+						country.countryInfo.lat,
+						country.countryInfo.long,
+					]}
+					fillColor={casesTypeColors[casesType].hex}
+					color={casesTypeColors[casesType].hex}
+					fillOpacity={0.4}
+					radius={
+						Math.sqrt(country[casesType]) *
+						casesTypeColors[casesType].multiplier
+					}>
+					<Popup>
+						<div className='info__container'>
+							<div
+								className='info__flag'
+								style={
+									country.countryInfo.flag
+										? {
+												backgroundImage: `url(${country.countryInfo.flag})`,
+										  }
+										: { backgroundImage: `url(${usa})` }
+								}></div>
+							<div className='info__name'>
+								{country.country
+									? country.country
+									: country.state}
+							</div>
+							<div className='info__confirmed'>
+								Cases:{' '}
+								{numeral(country.cases).format('0,0')}
+							</div>
+							<div className='info__recovered'>
+								Recovered:{' '}
+								{numeral(country.recovered).format('0,0')}
+							</div>
+							<div className='info__deaths'>
+								Deaths:{' '}
+								{numeral(country.deaths).format('0,0')}
+							</div>
+						</div>
+					</Popup>
+				</Circle>
+			</div>
+		));

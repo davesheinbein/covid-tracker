@@ -26,7 +26,8 @@ import 'leaflet/dist/leaflet.css';
 function App(props) {
 	const [color, setColor] = useState('light');
 	const { location } = useContext(__RouterContext);
-	// console.log('<<<< location', location);
+	console.log(location, '<<<< location');
+	console.log(location.pathname, '<<<< location.pathname');
 	// console.log('<<<< __RouterContext', __RouterContext);
 	const transition = useTransition(
 		location,
@@ -82,11 +83,35 @@ function App(props) {
 						/>
 					</Switch>
 					<div className='app__links'>
-						<Link to='/' className='app__link'>
+						<Link
+							to='/'
+							className='app__link'
+							style={
+								location.pathname == '/'
+									? {
+											// display: 'none',
+											color: 'transparent',
+											fontSize: 0,
+											cursor: 'unset',
+									  }
+									: { display: 'flex' }
+							}>
 							<ArrowBackIos />
 							Worldwide
 						</Link>
-						<Link to='/usa' className='app__link'>
+						<Link
+							to='/usa'
+							className='app__link'
+							style={
+								location.pathname == '/usa'
+									? {
+											// display: 'none',
+											color: 'transparent',
+											fontSize: 0,
+											cursor: 'unset',
+									  }
+									: { display: 'flex' }
+							}>
 							USA
 							<ArrowForwardIos />
 						</Link>
