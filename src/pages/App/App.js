@@ -81,6 +81,16 @@ function App(props) {
 								</>
 							)}
 						/>
+						<Route
+							render={() => (
+								<div className='app__notFoundContainer'>
+									<div className='app__notFound'>
+										<strong>Page</strong>
+										<small>Not Found</small>
+									</div>
+								</div>
+							)}
+						/>
 					</Switch>
 					<div className='app__links'>
 						<Link
