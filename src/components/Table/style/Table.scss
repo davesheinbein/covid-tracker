@@ -23,6 +23,9 @@
 			background: rgba(148, 12, 37, 0.95);
 		}
 	}
+	&::-webkit-scrollbar-corner {
+		background-color: var(--bg);
+	}
 	& > div {
 		display: flex;
 		justify-content: space-between;

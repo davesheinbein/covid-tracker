@@ -29,6 +29,10 @@
   background: rgba(148, 12, 37, 0.95);
 }
 
+.table::-webkit-scrollbar-corner {
+  background-color: var(--bg);
+}
+
 .table > div {
   display: -webkit-box;
   display: -ms-flexbox;

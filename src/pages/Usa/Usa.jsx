@@ -191,7 +191,9 @@ function Usa() {
 						<h3>Live Cases by Country</h3>
 						<Table countries={tableStateData} />
 						<h3 className='usa__graphTitle'>
-							Worldwide new {casesType}
+							Worldwide new{' '}
+							{casesType.charAt(0).toUpperCase() +
+								casesType.slice(1)}
 							{/* Selected states new {casesType} */}
 						</h3>
 						<LineGraph
